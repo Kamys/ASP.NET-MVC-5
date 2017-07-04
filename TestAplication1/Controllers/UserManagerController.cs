@@ -6,24 +6,22 @@ using System.Web.Mvc;
 
 namespace TestAplication1.Controllers
 {
-    public class HomeController : Controller
+    public class UserManagerController : Controller
     {
-        public ActionResult Index()
+        // GET: Users
+        public ActionResult Users()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult UserEdit()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult UserAdd()
+        {
             return View();
         }
     }
