@@ -1,7 +1,37 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Users list";
 }
 
-<h2>Users list</h2>
-
+<h2>Список пользователей</h2>
+<table>
+    <tr>
+        <td>
+            <p>Id</p>
+        </td>
+        <td>
+            <p>Имя</p>
+        </td>
+        <td>
+            <p>Почта</p>
+        </td><td></td>
+    </tr>
+    @foreach (var u in ViewBag.Users)
+    {
+        <tr>
+            <td>
+                <p>@u.Id</p>
+            </td>
+            <td>
+                <p>@u.Name</p>
+            </td>
+            <td>
+                <p>@u.Mail</p>
+            </td>
+            <td>
+                <p>
+                    <a href="/UserEdit">Редактировать</a>
+                </p>
+            </td>
+        </tr>
+    }
+</table>

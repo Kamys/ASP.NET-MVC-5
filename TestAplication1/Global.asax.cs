@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using TestAplication1.Models;
 
 namespace TestAplication1
 {
@@ -12,6 +14,8 @@ namespace TestAplication1
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new UserDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
