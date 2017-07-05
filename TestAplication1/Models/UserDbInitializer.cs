@@ -11,7 +11,7 @@ namespace TestAplication1.Models
         protected override void Seed(UserContext db)
         {
             var users = db.Users;
-            for (int i = 1; i <= 20; i++)
+            for (int i = 1; i <= 5; i++)
             {
                 users.Add(new User { Name = "User"+i, Mail = "User"+i+"@mail.ru" });
             }

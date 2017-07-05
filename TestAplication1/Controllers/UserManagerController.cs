@@ -29,16 +29,25 @@ namespace TestAplication1.Controllers
         [HttpPost]
         public ActionResult UserEdit(User newUser)
         {
-            ViewBag.Status = "Сохранено успешно!!!";
             var user = _db.Users.FirstOrDefault(u => u.Id == newUser.Id);
             user.Name = newUser.Name;
             user.Mail = newUser.Mail;
             _db.SaveChanges();
+            ViewBag.Status = "Сохранено успешно!!!";
             return UserEdit(user.Id);
         }
 
         public ActionResult UserAdd()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UserAdd(User user)
+        {
+            _db.Users.Add(user);
+            _db.SaveChanges();
+            ViewBag.Status = "Добавлен успешно!!!";
             return View();
         }
     }
