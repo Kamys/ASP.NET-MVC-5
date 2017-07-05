@@ -222,7 +222,14 @@ textarea {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  border: 1px solid #000000;
 }
+
+td, th {
+    padding: 3px;
+    border: 1px solid black;
+    text-align: center;
+   }
 
 @media print {
   * {
@@ -280,6 +287,8 @@ table {
   .table td,
   .table th {
     background-color: #fff !important;
+    padding: 1px;
+    text-align: center;
   }
   .btn > .caret,
   .dropup > .btn > .caret {

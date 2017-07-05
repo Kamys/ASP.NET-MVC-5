@@ -27,9 +27,13 @@ namespace TestAplication1.Controllers
         }
 
         [HttpPost]
-        public ActionResult UserEdit(User user)
+        public ActionResult UserEdit(User newUser)
         {
             ViewBag.Status = "Сохранено успешно!!!";
+            var user = _db.Users.FirstOrDefault(u => u.Id == newUser.Id);
+            user.Name = newUser.Name;
+            user.Mail = newUser.Mail;
+            _db.SaveChanges();
             return UserEdit(user.Id);
         }
 
