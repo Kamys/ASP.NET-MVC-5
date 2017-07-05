@@ -9,17 +9,19 @@ namespace TestAplication1.Controllers
 {
     public class UserManagerController : Controller
     {
-        private readonly UserContext _userContext = new UserContext();
+        private readonly UserContext _db = new UserContext();
 
         // GET: Users
         public ActionResult Users()
         {
-            ViewBag.Users = _userContext.Users;
+            ViewBag.Users = _db.Users;
             return View();
         }
 
-        public ActionResult UserEdit()
+        public ActionResult UserEdit(int id)
         {
+            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            ViewBag.EditUser = user;
             return View();
         }
 

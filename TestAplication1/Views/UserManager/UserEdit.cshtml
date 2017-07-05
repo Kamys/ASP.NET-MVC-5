@@ -1,7 +1,23 @@
-﻿@model dynamic
-
-@{
+﻿@{
     ViewBag.Title = "title";
 }
 
-<h2>title</h2>
+<div>
+    <h3>Редактирование @ViewBag.EditUser.Name</h3>
+    <form method="post" action="">
+        <input type="hidden" value="@ViewBag.EditUser.Id" name="UserId" />
+        <table>
+            <tr>
+                <td><p>Имя:</p></td>
+                <td><input type="text" name="NameUser" value="@ViewBag.EditUser.Name" /> </td>
+            </tr>
+            <tr>
+                <td><p>Почта:</p></td>
+                <td>
+                    <input type="text" name="MailUser" value="@ViewBag.EditUser.Mail" />
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Сохранить" /> </td><td></td></tr>
+        </table>
+    </form>
+</div>
