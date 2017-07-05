@@ -1,23 +1,24 @@
 ﻿@{
-    ViewBag.Title = "title";
+    
 }
 
 <div>
     <h3>Редактирование @ViewBag.EditUser.Name</h3>
     <form method="post" action="">
-        <input type="hidden" value="@ViewBag.EditUser.Id" name="UserId" />
+        <input type="hidden" value="@ViewBag.EditUser.Id" name="Id" />
         <table>
             <tr>
                 <td><p>Имя:</p></td>
-                <td><input type="text" name="NameUser" value="@ViewBag.EditUser.Name" /> </td>
+                <td><input type="text" name="Name" value="@ViewBag.EditUser.Name" /> </td>
             </tr>
             <tr>
                 <td><p>Почта:</p></td>
                 <td>
-                    <input type="text" name="MailUser" value="@ViewBag.EditUser.Mail" />
+                    <input type="text" name="Mail" value="@ViewBag.EditUser.Mail" />
                 </td>
             </tr>
             <tr><td><input type="submit" value="Сохранить" /> </td><td></td></tr>
+            <p>@ViewBag.Status</p>
         </table>
     </form>
 </div>

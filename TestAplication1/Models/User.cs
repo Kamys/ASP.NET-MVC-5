@@ -1,4 +1,6 @@
-﻿namespace TestAplication1.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TestAplication1.Models
 {
     public class User
     {
