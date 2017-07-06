@@ -19,9 +19,15 @@ namespace TestAplication1.Controllers
             return View();
         }
 
-        public ActionResult UserEdit(int id)
+        public ActionResult UserEdit(int id = 1)
         {
-            var user = _db.Users.FirstOrDefault(u => u.Id == id);
+            var countUser = _db.Users.Count();
+            if (countUser == 0)
+            {
+                return Redirect("/UserManager/UserAdd");
+            }
+
+            var user = _db.Users.Find(id);
             return View(user);
         }
 
