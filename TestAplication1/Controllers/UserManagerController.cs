@@ -19,6 +19,7 @@ namespace TestAplication1.Controllers
             return View();
         }
 
+        [HttpGet]
         public ActionResult UserEdit(int id = 1)
         {
             var countUser = _db.Users.Count();

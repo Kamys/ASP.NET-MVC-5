@@ -1,4 +1,4 @@
-﻿@model  TestAplication1.Models.User
+﻿@model TestAplication1.Models.User
 
 <div>
     <h3>Редактирование Id - @Model.Id</h3>
@@ -8,32 +8,34 @@
             @Html.HiddenFor(u => u.Id)
             <p>
                 @Html.LabelFor(u => u.Name, "Имя пользователя")
-                <br />
+                <br/>
                 @Html.EditorFor(u => u.Name)
             </p>
             <p>
                 @Html.LabelFor(u => u.Mail, "Почта")
-                <br />
+                <br/>
                 @Html.EditorFor(u => u.Mail)
             </p>
-            <p><input type="submit" value="Сохранить" /></p>
+            <p>
+                <input type="submit" value="Сохранить"/>
+            </p>
         </fieldset>
     }
-    <div id="nextUser">
-        @if (Model.Id > 1)
-        {
-            int previousId = @Model.Id;
-            previousId--;
-            Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = previousId },null);
-        }
 
-        <strong>@Model.Id</strong>
+    @if (Model.Id > 1)
+    {
+        var previousId = Model.Id;
+        previousId--;
+        @Html.ActionLink(" < ", "UserEdit", new {id = previousId})
+    }
 
-        @if (Model.Id < ViewBag.UserCount)
-        {
-            int nextId = @Model.Id;
-            nextId++;
-            @Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = nextId },null);
-        }
-    </div>
+
+    <strong>@Model.Id</strong>
+
+    @if (Model.Id < ViewBag.UserCount)
+    {
+        var nextId = Model.Id;
+        nextId++;
+        @Html.ActionLink(" > ", "UserEdit", new {id = nextId})
+    }
 </div>
