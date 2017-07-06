@@ -1,24 +1,22 @@
-﻿@{
-    
-}
+﻿@model  TestAplication1.Models.User
 
 <div>
-    <h3>Редактирование @ViewBag.EditUser.Name</h3>
-    <form method="post" action="">
-        <input type="hidden" value="@ViewBag.EditUser.Id" name="Id" />
-        <table>
-            <tr>
-                <td><p>Имя:</p></td>
-                <td><input type="text" name="Name" value="@ViewBag.EditUser.Name" /> </td>
-            </tr>
-            <tr>
-                <td><p>Почта:</p></td>
-                <td>
-                    <input type="text" name="Mail" value="@ViewBag.EditUser.Mail" />
-                </td>
-            </tr>
-        </table>
+    <h3>Редактирование Id - @Model.Id</h3>
+@using (Html.BeginForm("UserEdit", "UserManager", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(u => u.Id)
+        <p>
+            @Html.LabelFor(u => u.Name, "Имя пользователя")
+            <br />
+            @Html.EditorFor(u => u.Name)
+        </p>
+        <p>
+            @Html.LabelFor(u => u.Mail, "Почта")
+            <br />
+            @Html.EditorFor(u => u.Mail)
+        </p>
         <p><input type="submit" value="Сохранить" /></p>
-        <p>@ViewBag.Status</p>
-    </form>
+    </fieldset>
+}
 </div>

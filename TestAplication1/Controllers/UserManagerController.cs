@@ -22,8 +22,7 @@ namespace TestAplication1.Controllers
         public ActionResult UserEdit(int id)
         {
             var user = _db.Users.FirstOrDefault(u => u.Id == id);
-            ViewBag.EditUser = user;
-            return View();
+            return View(user);
         }
 
         [HttpPost]
