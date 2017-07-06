@@ -2,21 +2,41 @@
 
 <div>
     <h3>Редактирование Id - @Model.Id</h3>
-@using (Html.BeginForm("UserEdit", "UserManager", FormMethod.Post))
-{
-    <fieldset>
-        @Html.HiddenFor(u => u.Id)
-        <p>
-            @Html.LabelFor(u => u.Name, "Имя пользователя")
-            <br />
-            @Html.EditorFor(u => u.Name)
-        </p>
-        <p>
-            @Html.LabelFor(u => u.Mail, "Почта")
-            <br />
-            @Html.EditorFor(u => u.Mail)
-        </p>
-        <p><input type="submit" value="Сохранить" /></p>
-    </fieldset>
-}
+    @using (Html.BeginForm("UserEdit", "UserManager", FormMethod.Post))
+    {
+        <fieldset>
+            @Html.HiddenFor(u => u.Id)
+            <p>
+                @Html.LabelFor(u => u.Name, "Имя пользователя")
+                <br />
+                @Html.EditorFor(u => u.Name)
+            </p>
+            <p>
+                @Html.LabelFor(u => u.Mail, "Почта")
+                <br />
+                @Html.EditorFor(u => u.Mail)
+            </p>
+            <p><input type="submit" value="Сохранить" /></p>
+        </fieldset>
+    }
+    <div id="nextUser">
+        @Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = 2});
+        @if (Model.Id > 1)
+        {
+            int previousId = @Model.Id;
+            previousId--;
+            Html.ActionLink(" < ", "UserEdit", "UserManager");
+            //, new { id = previousId }
+
+        }
+
+        <strong>@Model.Id</strong>
+
+        @if (Model.Id < ViewBag.UserCount)
+        {
+            int nextId = @Model.Id;
+            nextId++;
+            Html.ActionLink(" > ", "UserEdit", "UserManager");
+        }
+    </div>
 </div>

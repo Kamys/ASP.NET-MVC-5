@@ -26,7 +26,7 @@ namespace TestAplication1.Controllers
             {
                 return Redirect("/UserManager/UserAdd");
             }
-
+            ViewBag.UserCount = countUser;
             var user = _db.Users.Find(id);
             return View(user);
         }
