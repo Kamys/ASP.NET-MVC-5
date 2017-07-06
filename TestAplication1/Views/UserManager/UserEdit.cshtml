@@ -20,14 +20,11 @@
         </fieldset>
     }
     <div id="nextUser">
-        @Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = 2});
         @if (Model.Id > 1)
         {
             int previousId = @Model.Id;
             previousId--;
-            Html.ActionLink(" < ", "UserEdit", "UserManager");
-            //, new { id = previousId }
-
+            Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = previousId },null);
         }
 
         <strong>@Model.Id</strong>
@@ -36,7 +33,7 @@
         {
             int nextId = @Model.Id;
             nextId++;
-            Html.ActionLink(" > ", "UserEdit", "UserManager");
+            @Html.ActionLink(" < ", "UserEdit", "UserManager", new { id = nextId },null);
         }
     </div>
 </div>
